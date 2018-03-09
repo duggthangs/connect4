@@ -38,30 +38,30 @@ The way this application works is similar to how a *Linked List* works. Every ce
 
 ```javascript
 createTable() {
-				let table = [];
-				let totalRows = 6;
-				let totalCols = 7;
-				for (let row = 0; row < totalRows; row++) {
-					table.push([]);
-					for (let col = 0; col < totalCols; col++) {
-						table[row].push({})
-					}
-				}
-				for (let row = 0; row < totalRows; row++) {
-					for (let col = 0; col < totalCols; col++) {
-						table[row][col].left = col > 0 ? table[row][col - 1] : null;
-						table[row][col].right = col < totalCols - 1 ? table[row][col + 1] : null;
-						table[row][col].bottom = row < totalRows - 1 ? table[row + 1][col] : null;
-						table[row][col].top = row > 0 ? table[row - 1][col] : null;
-						table[row][col].topLeft = row > 0 && col > 0 ? table[row - 1][col - 1] : null;
-						table[row][col].topRight = row > 0 && col < totalCols - 1 ? table[row - 1][col + 1] : null;
-						table[row][col].bottomLeft = row < totalRows - 1 && col > 0 ? table[row + 1][col - 1] : null;
-						table[row][col].bottomRight = row < totalRows - 1 && col < totalCols - 1 ? table[row + 1][col + 1] : null;
-						table[row][col].player = null;
-					}
-				}
-				return table
-			}
+	let table = [];
+	let totalRows = 6;
+	let totalCols = 7;
+	for (let row = 0; row < totalRows; row++) {
+		table.push([]);
+		for (let col = 0; col < totalCols; col++) {
+			table[row].push({})
+		}
+	}
+	for (let row = 0; row < totalRows; row++) {
+		for (let col = 0; col < totalCols; col++) {
+			table[row][col].left = col > 0 ? table[row][col - 1] : null;
+			table[row][col].right = col < totalCols - 1 ? table[row][col + 1] : null;
+			table[row][col].bottom = row < totalRows - 1 ? table[row + 1][col] : null;
+			table[row][col].top = row > 0 ? table[row - 1][col] : null;
+			table[row][col].topLeft = row > 0 && col > 0 ? table[row - 1][col - 1] : null;
+			table[row][col].topRight = row > 0 && col < totalCols - 1 ? table[row - 1][col + 1] : null;
+			table[row][col].bottomLeft = row < totalRows - 1 && col > 0 ? table[row + 1][col - 1] : null;
+			table[row][col].bottomRight = row < totalRows - 1 && col < totalCols - 1 ? table[row + 1][col + 1] : null;
+			table[row][col].player = null;
+		}
+	}
+	return table
+}
 ```
 Once the current player chip is detected on, for example, *Left*, then it keeps going in that direction, keeping count the number of times it matches the current player value until it reaches *NULL* or if player value does not match. 
 > Condition Expression: `currentCell.left == null` or `currentCell.left.player != currentCell.player`
@@ -71,38 +71,38 @@ If *condition expression* is met then it goes back to the first cell where the i
 
 ```javascript
 checkWin(player, cell) {
-				let count = 0;
-				if (it(player, cell, 'left', 'right')) {
-					return true
-				}
-				if (it(player, cell, 'top', 'bottom')) {
-					return true
-				}
-				if (it(player, cell, 'topLeft', 'bottomRight')) {
-					return true
-				}
-				if (it(player, cell, 'topRight', 'bottomLeft')) {
-					return true
-				}
-				// Evalutes win as false and switches player
-				this.nextPlayer();
+	let count = 0;
+	if (it(player, cell, 'left', 'right')) {
+		return true
+	}
+	if (it(player, cell, 'top', 'bottom')) {
+		return true
+	}
+	if (it(player, cell, 'topLeft', 'bottomRight')) {
+		return true
+	}
+	if (it(player, cell, 'topRight', 'bottomLeft')) {
+		return true
+	}
+	// Evalutes win as false and switches player
+	this.nextPlayer();
 
-				function it(p, c, pos, opPos) {
-					if (count === 4) {
-						return true
-					}
-					if (!c || !c.player || c.player.name !== p) {
-						if (opPos === null) {
-							count = 0;
-							return false
-						}
-						return it(p, cell[opPos], opPos, null)
-					} else {
-						count++;
-						return it(p, c[pos], pos, opPos)
-					}
-				}
-			},
+	function it(p, c, pos, opPos) {
+		if (count === 4) {
+			return true
+		}
+		if (!c || !c.player || c.player.name !== p) {
+			if (opPos === null) {
+				count = 0;
+				return false
+			}
+			return it(p, cell[opPos], opPos, null)
+		} else {
+			count++;
+			return it(p, c[pos], pos, opPos)
+		}
+	}
+},
 ```
 
 ### Conclusion
