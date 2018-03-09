@@ -1,0 +1,13 @@
+.peg {
+  width: 49px;
+  height: 49px;
+  border-radius: 100%;
+}
+.peg-player {
+  display: none;
+  position: absolute;
+  z-index: 2
+}
+.peg-drop:hover .peg-player {
+  display: block;
+}

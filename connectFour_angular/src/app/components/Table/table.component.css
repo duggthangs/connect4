@@ -1,0 +1,129 @@
+.game {
+  margin: auto;
+}
+
+.table {
+  position: relative;
+  width: 390px;
+  margin: auto;
+  box-shadow: 2px 4px 15px -3px rgba(0,0,0,0.75)
+}
+
+.overlay {
+  position: absolute;
+  bottom: -145px;
+  left: -16px;
+  z-index: 10;
+}
+
+.row {
+  justify-content: center;
+  display: flex;
+}
+
+.col {
+  padding: 0 5px 5px 0;
+  width: 50px;
+  height: 50px;
+  background-color: #1B0EA4;
+}
+
+.row > .col:first-child {
+  padding-left: 5px;
+}
+
+.table .row:nth-child(2) > .col {
+  padding-top: 5px;
+}
+
+.table .row:first-child .col {
+  background-color: transparent;
+}
+.table .row:first-child {
+  background-image: linear-gradient(-180deg, #615AAB 0%, #1B0EA4 100%);
+}
+
+.peg-drop {
+  width: 49px;
+  height: 49px;
+  border-radius: 100%;
+  border: 1px dashed black;
+  position: relative;
+  cursor: pointer;
+}
+
+.arrow {
+  position: absolute;
+  right: 10px;
+  top: -14px;
+  animation-name: arrow-animate;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease;
+}
+
+
+
+
+
+.player-info {
+  max-width: 390px;
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  font-size: 29px;
+}
+
+.player-name {
+  margin-right: 15px
+}
+
+.activePlayer {
+  padding: 10px 15px;
+  background-color: white
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100px;
+  margin: auto;
+  right: 40px;
+  top: 40px;
+}
+
+.menu > svg {
+  cursor: pointer;
+}
+
+.menu > svg:hover > g > g {
+  fill: #6caaf7;
+  transition: all 0.3s ease;
+}
+
+.peg {
+  background-color: white;
+  width: 49px;
+  height: 49px;
+  border-radius: 100%;
+}
+
+@keyframes arrow-animate {
+  from {
+    transform: translateY(0)
+  }
+  to {
+    transform: translateY(2px)
+  }
+}

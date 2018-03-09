@@ -1,0 +1,80 @@
+h1 {
+  margin: 0 55px 10px 0
+}
+
+h1.red {
+  color: #d1021b
+}
+
+h1.black {
+  color: black
+}
+
+.begin {
+  width: 500px;
+  margin: auto;
+}
+
+.peg-position {
+  position: absolute;
+  right: 132px;
+  top: 24px;
+}
+
+input {
+  box-sizing: border-box;
+  width: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  font-size: 25px;
+  border-radius: 25px;
+  padding: 5px 15px;
+  text-align: center;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+  transition: all 0.5s ease
+}
+input::placeholder {
+  color: rgba(0,0,0,0.2);
+}
+input:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 3px rgba(44, 91, 149, 0.8);
+}
+
+.player-wrapper {
+  position: relative;
+  background-color: white;
+  box-shadow: 0px 1px 15px 1px rgba(0, 0, 0, 0.3);
+  padding: 25px 0;
+  box-sizing: border-box;
+}
+
+.player-wrapper:first-child {
+  margin-bottom: 25px;
+}
+
+button.start {
+  margin-top: 25px;
+  background: none;
+  height: 100px;
+  width: 200px;
+  position: relative;
+  border: 3px solid white;
+  border-radius: 54px;
+  cursor: pointer;
+  transition: all 0.5s ease
+}
+
+button.start:hover {
+  background-color: white
+}
+
+button.start:hover svg g {
+  fill: #2c5b95;
+}
+
+button svg {
+  position: absolute;
+  top: 15px;
+  right: 67px;
+}
